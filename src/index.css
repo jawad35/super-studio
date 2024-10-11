@@ -212,7 +212,6 @@
   }
 }
 
-
 .sidebar {
   position: fixed;
   top: 50%;
@@ -222,6 +221,7 @@
   display: flex;
   flex-direction: column;
 }
+
 /* Ensure Link doesn't introduce margin or spacing */
 .sidebar .option a {
   display: flex;
@@ -268,7 +268,7 @@
 
 .option:hover .text {
   opacity: 1;
-  right: -10px;
+  right: -14px;
   font-weight: 700;
 }
 
@@ -299,7 +299,7 @@
 @media (max-width: 768px) {
   .sidebar {
     top: auto;
-    bottom: 0px; /* Add margin from the bottom */
+    bottom: 0px;
     left: 0;
     width: 100%;
     height: 75px;
@@ -308,32 +308,37 @@
     justify-content: space-around;
     border-radius: 0;
     border-top: 1px solid #252525;
-    background-color: #040404; /* Ensure consistent background */
+    background-color: #040404;
   }
 
   .option {
     width: auto;
-    padding: 7px 0;
+    padding: 0; /* Reset padding */
+    margin: 0;  /* Reset margin */
     border-radius: 0;
     background-color: transparent;
     border: none;
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+    /* Disable hover transitions for mobile */
     transition: none;
   }
 
-  /* Ensure Link behaves in column layout */
+  /* Ensure Link behaves properly in column layout */
   .option a {
     display: flex;
-    flex-direction: column; /* Column layout for icon and text */
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-decoration: none;
     width: 100%;
-    padding: 5px 0;
+    padding: 5px 0; /* Define padding */
+    margin: 0; /* Reset margin */
+    box-sizing: border-box; /* Prevent padding issues */
   }
 
   .icon {
     font-size: 20px;
-    color: #fff; /* Icons are white */
+    color: #fff;
   }
 
   .text {
@@ -343,9 +348,10 @@
     opacity: 1;
     margin-top: 2px;
     transition: none;
-    color: #fff; /* Text is white */
+    color: #fff;
   }
 
+  /* Disable hover effects for mobile */
   .option:hover .icon {
     transform: none;
   }

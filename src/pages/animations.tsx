@@ -5,7 +5,7 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className="option">
-        <Link to="/home">
+        <Link to="/">
           <i className="icon fas fa-bars"></i>
           <span className="text">Home</span>
         </Link>
